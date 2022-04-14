@@ -1,0 +1,13 @@
+; Set up variables
+NEW INT r
+NEW INT a
+SET a 5
+NEW INT b
+IN b
+; Logical operation
+MUL r a b
+; Output
+OUT r
+DELETE r
+DELETE a
+DELETE b
