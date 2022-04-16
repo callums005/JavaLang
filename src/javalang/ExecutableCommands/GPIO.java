@@ -17,9 +17,14 @@ public class GPIO {
 	    Scanner scanner = new Scanner(System.in);
 	    if (obj.Type.equals("STRING")) {
 		obj.SValue = scanner.nextLine();
-	    } else if (obj.Type.equals("INT")) {
+	    } 
+	    else if (obj.Type.equals("INT")) {
 		obj.IValue = scanner.nextInt();
-	    } else if (obj.Type.equals("BOOLEAN")) {
+	    } 
+	    else if (obj.Type.equals("FLOAT")) {
+		obj.FValue = scanner.nextFloat();
+	    }
+	    else if (obj.Type.equals("BOOLEAN")) {
 		String v = scanner.nextLine();
 		
 		if (v.equals("TRUE")) {
@@ -49,6 +54,9 @@ public class GPIO {
 	    }
 	    else if (obj.Type.equals("INT")) {
 		System.out.println(obj.IValue);
+	    }
+	    else if (obj.Type.equals("FLOAT")) {
+		System.out.println(obj.FValue);
 	    }
 	    else if (obj.Type.equals("BOOLEAN")) {
 		System.out.println((obj.IValue == 0) ? "FALSE" : "TRUE");

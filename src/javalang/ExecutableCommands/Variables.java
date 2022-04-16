@@ -7,7 +7,7 @@ import javalang.MemoryObject;
 
 public class Variables {
     public static ExecuteReturn NEW(List<MemoryObject> memory, String type, String variableName) {
-	if (!type.equals("STRING") && !type.equals("INT") && !type.equals("BOOLEAN")) 
+	if (!type.equals("STRING") && !type.equals("INT") && !type.equals("FLOAT") && !type.equals("BOOLEAN")) 
 	    return new ExecuteReturn(true, "Interperation Error: Variable type not supported");
 	
 	int loc = MemoryManager.GetMemoryLocationOfObject(memory, variableName);
@@ -35,7 +35,8 @@ public class Variables {
 		}
 		
 		obj.SValue = v;
-	    } else if (obj.Type.equals("INT")) {
+	    } 
+	    else if (obj.Type.equals("INT")) {
 		try {
 		    obj.IValue = Integer.parseInt(value[value.length - 1]);
 		}
@@ -43,7 +44,16 @@ public class Variables {
 		    return new ExecuteReturn(true, "Interperation Error: Unable to convert STRING to INT");
 		}
 		
-	    } else if (obj.Type.equals("BOOLEAN")) {
+	    } 
+	    else if (obj.Type.equals("FLOAT")) {
+		try {
+		    obj.FValue = Float.parseFloat(value[value.length - 1]);
+		}
+		catch (Exception e) {
+		    return new ExecuteReturn(true, "Interperation Error: Unable to convert STRING to FLOAT");
+		}
+	    }
+	    else if (obj.Type.equals("BOOLEAN")) {
 		if (value[value.length - 1].equals("TRUE")) {
 		    obj.IValue = 1;
 		}

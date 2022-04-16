@@ -1,7 +1,7 @@
-NEW INT r
-NEW INT a
-NEW INT b
-SET a 5
-SET b 15
+NEW FLOAT r
+NEW FLOAT a
+NEW FLOAT b
+SET a 1.2
+SET b 0.8
 ADD r a b
 OUT r
