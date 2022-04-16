@@ -2,12 +2,11 @@ package javalang;
 
 import java.util.List;
 import javalang.ExecutableCommands.GPIO;
-import javalang.ExecutableCommands.Variables;
 import javalang.ExecutableCommands.Mathmatical;
+import javalang.ExecutableCommands.Variables;
 
 public class Interperater {
     public static void InterperateInstruction(String instruction, int line, List<MemoryObject> memory) {
-	// String.split returns array, hence [0] at the end.
 	String[] commands = instruction.split(" ");
 	
 	ExecuteReturn r;
@@ -31,14 +30,14 @@ public class Interperater {
 		    r = new ExecuteReturn(true, "Invalid number of arguments");
 		break;
 	    case "SET":
-		if (commands.length == 3)
-		    r = Variables.SET(memory, commands[1], commands[2]);
+		if (commands.length >= 3)
+		    r = Variables.SET(memory, commands[1], commands);
 		else
 		    r = new ExecuteReturn(true, "Invalid number of arguments");
 		break;
-	    case "DELETE":
+	    case "DEL":
 		if (commands.length == 2)
-		    r = Variables.DELETE(memory, commands[1]);
+		    r = Variables.DEL(memory, commands[1]);
 		else
 		    r = new ExecuteReturn(true, "Invalid number of arguments");
 		break;

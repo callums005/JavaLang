@@ -15,7 +15,15 @@ public class Mathmatical {
 	if (objB == null)
 	    return new ExecuteReturn(true, "Interperation Error: VariableB not defined");
 	
-	Variables.SET(memory, resultVariable, Integer.toString((objA.IValue + objB.IValue)));
+	if (!objA.Type.equals("INT") && !objA.Type.equals("FLOAT"))
+	    return new ExecuteReturn(true, "Interperation Error: VariableA is not a number");
+	if (!objB.Type.equals("INT") && !objB.Type.equals("FLOAT"))
+	    return new ExecuteReturn(true, "Interperation Error: VariableB is not a number");
+	
+	String[] arr = new String[1];
+	arr[0] = Integer.toString((objA.IValue + objB.IValue));
+	
+	Variables.SET(memory, resultVariable, arr);
 	return new ExecuteReturn(false, "");
     }
     
@@ -23,14 +31,20 @@ public class Mathmatical {
 	MemoryObject objA = MemoryManager.GetMemoryObject(memory, variableA);
 	MemoryObject objB = MemoryManager.GetMemoryObject(memory, variableB);
 
-	if (objA == null) {
+	if (objA == null)
 	    return new ExecuteReturn(true, "Interperation Error: VariableA not defined");
-	}
-	if (objB == null) {
+	if (objB == null)
 	    return new ExecuteReturn(true, "Interperation Error: VariableB not defined");
-	}
+	
+	if (!objA.Type.equals("INT") && !objA.Type.equals("FLOAT"))
+	    return new ExecuteReturn(true, "Interperation Error: VariableA is not a number");
+	if (!objB.Type.equals("INT") && !objB.Type.equals("FLOAT"))
+	    return new ExecuteReturn(true, "Interperation Error: VariableB is not a number");
 
-	Variables.SET(memory, resultVariable, Integer.toString((objA.IValue - objB.IValue)));
+	String[] arr = new String[1];
+	arr[0] = Integer.toString((objA.IValue - objB.IValue));
+
+	Variables.SET(memory, resultVariable, arr);
 	return new ExecuteReturn(false, "");
     }
     
@@ -38,14 +52,20 @@ public class Mathmatical {
 	MemoryObject objA = MemoryManager.GetMemoryObject(memory, variableA);
 	MemoryObject objB = MemoryManager.GetMemoryObject(memory, variableB);
 
-	if (objA == null) {
+	if (objA == null)
 	    return new ExecuteReturn(true, "Interperation Error: VariableA not defined");
-	}
-	if (objB == null) {
+	if (objB == null)
 	    return new ExecuteReturn(true, "Interperation Error: VariableB not defined");
-	}
 
-	Variables.SET(memory, resultVariable, Integer.toString((objA.IValue * objB.IValue)));
+	if (!objA.Type.equals("INT") && !objA.Type.equals("FLOAT"))
+	    return new ExecuteReturn(true, "Interperation Error: VariableA is not a number");
+	if (!objB.Type.equals("INT") && !objB.Type.equals("FLOAT"))
+	    return new ExecuteReturn(true, "Interperation Error: VariableB is not a number");
+	
+	String[] arr = new String[1];
+	arr[0] = Integer.toString((objA.IValue * objB.IValue));
+
+	Variables.SET(memory, resultVariable, arr);
 	return new ExecuteReturn(false, "");
     }
     
@@ -53,14 +73,20 @@ public class Mathmatical {
 	MemoryObject objA = MemoryManager.GetMemoryObject(memory, variableA);
 	MemoryObject objB = MemoryManager.GetMemoryObject(memory, variableB);
 
-	if (objA == null) {
+	if (objA == null)
 	    return new ExecuteReturn(true, "Interperation Error: VariableA not defined");
-	}
-	if (objB == null) {
+	if (objB == null)
 	    return new ExecuteReturn(true, "Interperation Error: VariableB not defined");
-	}
+	
+	if (!objA.Type.equals("INT") && !objA.Type.equals("FLOAT"))
+	    return new ExecuteReturn(true, "Interperation Error: VariableA is not a number");
+	if (!objB.Type.equals("INT") && !objB.Type.equals("FLOAT"))
+	    return new ExecuteReturn(true, "Interperation Error: VariableB is not a number");
 
-	Variables.SET(memory, resultVariable, Integer.toString((objA.IValue / objB.IValue)));
+	String[] arr = new String[1];
+	arr[0] = Integer.toString((objA.IValue / objB.IValue));
+
+	Variables.SET(memory, resultVariable, arr);
 	return new ExecuteReturn(false, "");
     }
 }

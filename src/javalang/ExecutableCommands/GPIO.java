@@ -19,6 +19,18 @@ public class GPIO {
 		obj.SValue = scanner.nextLine();
 	    } else if (obj.Type.equals("INT")) {
 		obj.IValue = scanner.nextInt();
+	    } else if (obj.Type.equals("BOOLEAN")) {
+		String v = scanner.nextLine();
+		
+		if (v.equals("TRUE")) {
+		    obj.IValue = 1;
+		}
+		else if (v.equals("FALSE")) {
+		    obj.IValue = 0;
+		}
+		else {
+		    return new ExecuteReturn(true, "Interperation Error: Invalid boolean state. Ensure value is in block capitals");
+		}
 	    }
 	    
 	    memory.set(MemoryManager.GetMemoryLocationOfObject(memory, variableName), obj);
@@ -37,6 +49,9 @@ public class GPIO {
 	    }
 	    else if (obj.Type.equals("INT")) {
 		System.out.println(obj.IValue);
+	    }
+	    else if (obj.Type.equals("BOOLEAN")) {
+		System.out.println((obj.IValue == 0) ? "FALSE" : "TRUE");
 	    }
 	    return new ExecuteReturn(false, "");
 	}

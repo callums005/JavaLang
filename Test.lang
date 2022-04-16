@@ -1,0 +1,7 @@
+NEW STRING v
+SET v Hello world
+OUT v
+DEL v
+NEW STRING v
+SET v HELLO WORLD
+OUT v
