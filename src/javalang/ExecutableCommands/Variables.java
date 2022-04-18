@@ -43,7 +43,6 @@ public class Variables {
 		catch (Exception e) {
 		    return new ExecuteReturn(true, "Interperation Error: Unable to convert STRING to INT");
 		}
-		
 	    } 
 	    else if (obj.Type.equals("FLOAT")) {
 		try {
