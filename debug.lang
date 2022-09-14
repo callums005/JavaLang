@@ -1,0 +1,7 @@
+NEW STRIN hi
+SET hi HELLO
+NEW STRING world
+SET world world
+NEW STRING rus
+ADD rus hi world
+OUT rus

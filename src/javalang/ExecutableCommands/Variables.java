@@ -19,7 +19,7 @@ public class Variables {
 	return new ExecuteReturn(true, "Interperation Error: Variable already defined. Cannot redefine variables");
     }
     
-    public static ExecuteReturn SET(List<MemoryObject> memory, String variableName, String[] value) {
+    public static ExecuteReturn SET(List<MemoryObject> memory, String variableName, String[] value, boolean fromMathFunction) {
 	int loc = MemoryManager.GetMemoryLocationOfObject(memory, variableName);
 	if (loc < 0) {
 	    return new ExecuteReturn(true, "Interperation Error: Variable not defined");
@@ -27,7 +27,7 @@ public class Variables {
 	MemoryObject obj = memory.get(loc);
 	
 	if (obj != null) {
-	    if (obj.Type.equals("STRING")) {
+	    if (obj.Type.equals("STRING") && !fromMathFunction) {
 		String v = "";
 		
 		for (int i=2; i < value.length; i++) {
@@ -36,6 +36,9 @@ public class Variables {
 		
 		obj.SValue = v;
 	    } 
+	    else if (obj.Type.equals("STRING") && fromMathFunction) {
+		obj.SValue = value[0];
+	    }
 	    else if (obj.Type.equals("INT")) {
 		try {
 		    obj.IValue = Integer.parseInt(value[value.length - 1]);

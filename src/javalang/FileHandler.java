@@ -21,9 +21,9 @@ public class FileHandler {
 
 	    return FileContent;
 	} catch (FileNotFoundException e) {
-	    System.err.println("An error occured.");
-	    e.printStackTrace();
-	    return null;
+		System.err.println("An error occured.");
+		e.printStackTrace();
+		return null;
 	}
     }
 }

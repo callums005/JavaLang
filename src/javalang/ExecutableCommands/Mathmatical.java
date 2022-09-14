@@ -18,6 +18,13 @@ public class Mathmatical {
 	if (resultObj == null)
 	    return new ExecuteReturn(true, "Interperation Error: ResultVariable not defined");
 	
+	if (objA.Type.equals("STRING") && objB.Type.equals("STRING")) {
+	    String[] arr = new String[1];
+	    arr[0] = objA.SValue + objB.SValue;
+	    Variables.SET(memory, resultVariable, arr, true);
+	    return new ExecuteReturn(false, "");
+	}
+	
 	if (!objA.Type.equals("INT") && !objA.Type.equals("FLOAT"))
 	    return new ExecuteReturn(true, "Interperation Error: VariableA is not a number");
 	if (!objB.Type.equals("INT") && !objB.Type.equals("FLOAT"))
@@ -28,7 +35,7 @@ public class Mathmatical {
 	    arr[0] = Integer.toString((objA.IValue + objB.IValue));
 	else if (resultObj.Type.equals("FLOAT"))
 	    arr[0] = Float.toString((objA.FValue + objB.FValue));
-	Variables.SET(memory, resultVariable, arr);
+	Variables.SET(memory, resultVariable, arr, true);
 	return new ExecuteReturn(false, "");
     }
     
@@ -60,7 +67,7 @@ public class Mathmatical {
 	} else if (resultObj.Type.equals("FLOAT")) {
 	    arr[0] = Float.toString((objA.FValue - objB.FValue));
 	}
-	Variables.SET(memory, resultVariable, arr);
+	Variables.SET(memory, resultVariable, arr, true);
 	return new ExecuteReturn(false, "");
     }
     
@@ -92,7 +99,7 @@ public class Mathmatical {
 	} else if (resultObj.Type.equals("FLOAT")) {
 	    arr[0] = Float.toString((objA.FValue * objB.FValue));
 	}
-	Variables.SET(memory, resultVariable, arr);
+	Variables.SET(memory, resultVariable, arr, true);
 	return new ExecuteReturn(false, "");
     }
     
@@ -124,7 +131,7 @@ public class Mathmatical {
 	} else if (resultObj.Type.equals("FLOAT")) {
 	    arr[0] = Float.toString((objA.FValue / objB.FValue));
 	}
-	Variables.SET(memory, resultVariable, arr);
+	Variables.SET(memory, resultVariable, arr, true);
 	return new ExecuteReturn(false, "");
     }
 }

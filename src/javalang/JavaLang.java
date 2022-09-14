@@ -9,8 +9,6 @@ public class JavaLang {
 	Interperater.Instructions = FileHandler.ReadFile(args[0]);
 	List<MemoryObject> memory = new ArrayList<>();
 	
-	Interperater.SetInterperationOrder(memory);
-	
 	Interperater.Interperate(memory);
     }    
 }

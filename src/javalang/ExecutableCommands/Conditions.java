@@ -6,7 +6,7 @@ import javalang.MemoryManager;
 import javalang.MemoryObject;
 
 public class Conditions { 
-    public static ConditionExecuteReturn IF_STATEMENT(List<String> lines, int currentLine, List<MemoryObject> memory, 
+    public static ConditionExecuteReturn IF_STATEMENT(List<MemoryObject> memory, 
 	    String variableA, String operator, String variableB) {
 	MemoryObject objA = MemoryManager.GetMemoryObject(memory, variableA);
 	MemoryObject objB = MemoryManager.GetMemoryObject(memory, variableB);
@@ -77,9 +77,9 @@ public class Conditions {
 		if (objA.Type.equals("STRING")) {
 		    return new ConditionExecuteReturn(true, "Logic Error: Invalid types for mathmatical operator. ");
 		} else if (objA.Type.equals("INT") || objA.Type.equals("BOOLEAN")) {
-		    c = objA.IValue <= objB.IValue;
+		    c = objA.IValue >= objB.IValue;
 		} else if (objA.Type.equals("FLOAT")) {
-		    c = objA.FValue <= objB.FValue;
+		    c = objA.FValue >= objB.FValue;
 		}
 		break;
 	    default:
