@@ -1,4 +1,4 @@
-#JavaLang
+# JavaLang
 I made a "language" using java.
 
 ## How it works (explained badly)
